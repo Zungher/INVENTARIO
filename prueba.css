@@ -1,0 +1,386 @@
+    /* Estilos para el menú */
+    .menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #333;
+        z-index: 1;
+        overflow-x: hidden;
+        padding-top: 60px;
+    }
+
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu li {
+        margin: 0;
+        padding: 10px 15px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Efecto de resaltado al pasar el ratón */
+    }
+
+    .menu li:hover {
+        background-color: #555;
+    }
+
+    /* Estilos para el contenido de la página */
+    .contenido {
+        margin-left: 300px; /* Ancho del menú */
+        padding: 20px;
+    }
+    body {
+        font-family: 'Noto Sans JP', sans-serif;
+      }
+
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    
+    h1 {
+        font-family: 'Noto Sans JP', sans-serif;
+        text-align: center;
+        padding: 20px;
+        background-color: #175b9b;
+        color: #fff;
+    }
+    
+    table {
+        font-family: 'Noto Sans JP', sans-serif;
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+    
+    table th {
+        text-align: center;
+    }
+    
+    table td:not(:nth-child(2)) {
+        text-align: center;
+    }
+    
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #213e8f;
+        color: #fff;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+    /* Estilos para los botones */
+    .text-center {
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    button {
+        font-family: 'Noto Sans JP', sans-serif;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+    }
+    
+    button:hover {
+        background-color: #555;
+    }
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        appearance: none; /* Elimina el estilo predeterminado del sistema */
+        width: 50%;
+    }
+    
+    select:focus {
+        outline: none;
+        border-color: #007bff; /* Cambia el color del borde al enfocar */
+    }
+    
+    /* Estilo para las opciones de la lista desplegable */
+    select option {
+        background-color: #fff;
+    }
+    
+    /* Estilo cuando se pasa el mouse sobre una opción */
+    select option:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        appearance: none; /* Elimina el estilo predeterminado del sistema */
+        width: 100%;
+    }
+    
+    select:focus {
+        outline: none;
+        border-color: #007bff; /* Cambia el color del borde al enfocar */
+    }
+    
+    /* Estilo para las opciones de la lista desplegable */
+    select option {
+        background-color: #fff;
+    }
+    
+    /* Estilo cuando se pasa el mouse sobre una opción */
+    select option:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    /* Estilos para el campo de entrada de archivo */
+    input[type="file"] {
+        display: none; /* Ocultar el campo de entrada de archivo */
+    }
+    
+    label[for="imagen-input"] {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        appearance: none; /* Elimina el estilo predeterminado del sistema */
+        width: 100%;
+    }
+    
+    select:focus {
+        outline: none;
+        border-color: #007bff; /* Cambia el color del borde al enfocar */
+    }
+    
+    /* Estilo para las opciones de la lista desplegable */
+    select option {
+        background-color: #fff;
+    }
+    
+    /* Estilo cuando se pasa el mouse sobre una opción */
+    select option:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    /* Estilos para el botón de "Agregar Imagen" en cada fila */
+    .agregar-imagen-btn {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+    
+    /* Estilos para la celda de imagen */
+    .imagen-cell {
+        position: relative;
+    }
+    
+    /* Estilos para el botón "Agregar Imagen" */
+    .imagen-cell .agregar-imagen-btn {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    
+    /* Estilos para el campo de entrada de archivo oculto */
+    .imagen-input {
+        display: none; /* Ocultar el campo de entrada de archivo */
+    }
+    
+    select {
+        
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        appearance: none; /* Elimina el estilo predeterminado del sistema */
+        width: 100%;
+    }
+    
+    select:focus {
+        outline: none;
+        border-color: #007bff; /* Cambia el color del borde al enfocar */
+    }
+    
+    /* Estilo para las opciones de la lista desplegable */
+    select option {
+        background-color: #fff;
+    }
+    
+    /* Estilo cuando se pasa el mouse sobre una opción */
+    select option:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    /* Estilos para el campo de entrada de archivo oculto */
+    .imagen-input {
+        display: none; /* Ocultar el campo de entrada de archivo */
+    }
+    
+    /* Estilos para el botón de "Agregar Imagen" */
+    .agregar-imagen-btn {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        appearance: none; /* Elimina el estilo predeterminado del sistema */
+        width: 100%;
+    }
+    
+    select:focus {
+        outline: none;
+        border-color: #007bff; /* Cambia el color del borde al enfocar */
+    }
+    
+    /* Estilo para las opciones de la lista desplegable */
+    select option {
+        background-color: #fff;
+    }
+    
+    /* Estilo cuando se pasa el mouse sobre una opción */
+    select option:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    /* Estilos para el campo de entrada de archivo oculto */
+    .imagen-input {
+        display: none; /* Ocultar el campo de entrada de archivo */
+    }
+    
+    /* Estilos para el botón de "Agregar Imagen" */
+    .agregar-imagen-btn {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+    
+    /* Estilos para la celda de imagen */
+    .imagen-cell {
+        position: relative;
+    }
+    
+    /* Estilos para la imagen dentro de la celda */
+    .imagen-cell img {
+        max-width: 100px; /* Establece el ancho máximo para la imagen */
+        height: auto; /* Mantiene la proporción de aspecto original de la imagen */
+    }
+    
+    /* Estilos para el botón "Agregar Imagen" */
+    .imagen-cell .agregar-imagen-btn {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    
+    /* Estilo común para todos los inputs en la tabla */
+    table input[type="number"],
+    table select {
+        border: 1px solid #ccc;
+        padding: 2px;
+        
+        border-radius: 4px;
+        outline: none;
+        text-align: center;
+    }
+    
+    table select {
+        appearance: none; /* Quita los estilos de apariencia nativa del sistema */
+        background-image: url('images/ruta-de-flecha-abajo.png'); /* Añade una flecha personalizada (ajusta la ruta) */
+        background-position: calc(100% - 20px) center; /* Ajusta la posición de la flecha hacia la izquierda */
+        background-repeat: no-repeat;
+        background-size: 12px; /* Ajusta el tamaño de la flecha */
+        cursor: pointer;
+    }
+    
+    /* Estilo para la celda de imagen */
+    .imagen-cell {
+        position: relative;
+        width: auto;
+    }
+    
+    /* Estilo para el contenedor de carga de imagen */
+    .image-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100px; /* Altura deseada */
+        border: 2px dashed #ccc; /* Borde punteado */
+        background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+        cursor: pointer;
+    }
+    
+    /* Estilo para el texto dentro del contenedor de carga de imagen */
+    .image-upload-text {
+        text-align: center;
+    }
+    
+    /* Estilo para los párrafos de texto */
+    .image-upload-text p {
+        margin: 0;
+        padding: 5px;
+    }
+    

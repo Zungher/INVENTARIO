@@ -1,0 +1,22 @@
+/* Estilos CSS para centrar la imagen vertical y horizontalmente en toda la página */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Cambia el color de fondo según tus preferencias */
+  }
+  
+  .error-container {
+    text-align: center; /* Centrar horizontalmente */
+  }
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* Evita un pequeño espacio debajo de la imagen */
+    margin: 0 auto; /* Centrar horizontalmente */
+  }
+  

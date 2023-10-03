@@ -1,0 +1,161 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/fondo3.jpg"); /* Reemplaza "fondo.jpg" con la URL de la imagen de fondo */
+    background-size: cover;
+    z-index: -1;
+  }
+  
+  .title {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100% - 40px);
+    height: 100px;
+    border-radius: 20px;
+    z-index: 1;
+    display: flex;
+    justify-content: center; /* Centramos horizontalmente el título */
+    align-items: center; /* Centramos verticalmente el título */
+  }
+  
+  .panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: calc(100% - 170px);
+    margin-top: 170px;
+  }
+  
+  .image-container {
+    position: relative;
+    margin: 10px;
+    width: 280px;
+    height: 400px;
+  }
+  
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.3s;
+  }
+  
+  .image-container:hover .overlay, .image-container:active .overlay {
+    opacity: 1;
+  }
+  
+  .panel-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  .panel-content h3 {
+    margin-bottom: 10px;
+  }
+  
+  .panel-content a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .panel-content a:hover {
+    background-color: #45a049;
+  }
+  
+  /* Media queries para ajuste automático en diferentes dispositivos */
+  @media only screen and (max-width: 768px) {
+    /* Estilos para dispositivos con un ancho máximo de 768px */
+    .image-container {
+      width: 90%; /* Ajustamos el ancho de los paneles para dispositivos móviles */
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    /* Estilos para dispositivos con un ancho máximo de 480px (pantallas pequeñas) */
+    .image-container {
+      width: 100%; /* Ajustamos el ancho de los paneles para pantallas muy pequeñas */
+      height: 300px; /* Ajustamos la altura de los paneles para pantallas muy pequeñas */
+    }
+  }
+  
+/* Estilos para la animación de la pantalla de carga */
+.loader-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Fondo blanco para la pantalla de carga */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid #3498db;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para el texto "Cargando" */
+.loader p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #3498db;
+}
+
+/* Resto de los estilos (mantenidos desde las respuestas anteriores) */
+/* ... */

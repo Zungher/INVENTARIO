@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prueba.css">
+    <link rel="icon" href="images/icono.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+    <title>Prueba</title>
+</head>
+<body>
+    <div class="menu" id="menu">
+        <ul>
+            <li onclick="mostrarContenido('eventos')">Eventos</li>
+            <li onclick="mostrarContenido('inventarios')">Inventarios</li>
+        </ul>
+    </div>
+    <div class="contenido">
+        <div id="eventos">
+            <!-- Contenido de la página de Eventos -->
+            <h1>Página de Eventos</h1>
+            <p>Aquí puedes encontrar información sobre eventos.</p>
+            <div id="calendario"></div>
+        </div>
+        <div id="inventarios" style="display: none;">
+            <!-- Contenido de la página de Inventarios -->
+            <h1>Sistema de inventarios Banquetes</h1>
+            <div class="text-center">
+                <button onclick="agregarProducto()">Agregar Producto</button>
+                <button onclick="guardarProductos()">Guardar Productos</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: auto;">Nombre</th>
+                        <th style="width: auto;">Disponibilidad</th>
+                        <th style="width: auto;">Cantidad</th>
+                        <th style="width: auto;">Imagen</th>
+                        <th style="width: auto;"></th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                    <!-- Los datos se agregarán dinámicamente con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function mostrarContenido(pagina) {
+            const eventos = document.getElementById('eventos');
+            const inventarios = document.getElementById('inventarios');
+
+            if (pagina === 'eventos') {
+                eventos.style.display = 'block';
+                inventarios.style.display = 'none';
+            } else if (pagina === 'inventarios') {
+                eventos.style.display = 'none';
+                inventarios.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Carga</title>
+  <link rel="stylesheet" href="carga.css">
+  <link rel="icon" href="images/icono.png" type="image/png">
+</head>
+<body>
+  <!-- Puedes cambiar 'tu-imagen.gif' por la ruta de tu propia imagen GIF -->
+  <div class="loader-container">
+    <img src="images/gear.gif" alt="Cargando...">
+  </div>
+  <script>
+    // Obtén la URL de destino y el parámetro de error de los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetUrl = urlParams.get("target");
+    const isError = urlParams.get("error");
+
+    // Función para redirigir al usuario
+    function redirigir() {
+      if (isError === "true") {
+        // Si hay un error, redirige a la página de error
+        window.location.href = "pagina-error.html";
+      } else if (targetUrl) {
+        // Si no hay error y hay una URL de destino, redirige a la URL de destino
+        window.location.href = targetUrl;
+      } else {
+        console.error("URL de destino no especificada.");
+      }
+    }
+
+    // Después de 1 minuto (60,000 milisegundos), redirigir al usuario
+    setTimeout(redirigir, 600); // Espera 1 minuto antes de redirigir
+  </script>
+</body>
+</html>
