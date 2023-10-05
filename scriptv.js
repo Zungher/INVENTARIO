@@ -10,12 +10,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelButton = document.getElementById('cancel-button');
     let editingEvent = null;
 
+    // Función para cargar los eventos desde el almacenamiento local
+    function loadEventsFromLocalStorage() {
+        const eventsJSON = localStorage.getItem('events');
+        if (eventsJSON) {
+            return JSON.parse(eventsJSON);
+        } else {
+            return [];
+        }
+    }
+
+    // Cargar eventos al inicio
+    const events = loadEventsFromLocalStorage();
+    renderEvents(events);
+
+    // Función para renderizar los eventos en la interfaz
+    function renderEvents(events) {
+        eventList.innerHTML = '';
+        for (const event of events) {
+            const eventElement = createEventElement(event);
+            eventList.appendChild(eventElement);
+        }
+    }
+
     // Agregar evento
-    
     cancelButton.addEventListener('click', function() {
         eventPopup.style.display = 'none';
     });
-        saveEventButton.addEventListener('click', function() {
+
+    saveEventButton.addEventListener('click', function() {
         const date = eventDateInput.value;
         const title = eventTitleInput.value;
         const descriptionShort = eventDescriptionShortInput.value;
@@ -23,20 +46,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (date && title && descriptionShort && descriptionLong) {
             if (editingEvent) {
-                // Actualizar el evento existente
-                editingEvent.querySelector('.event-date').textContent = date;
-                editingEvent.querySelector('h2').textContent = title;
-                editingEvent.querySelector('.event-description').textContent = descriptionShort;
-                editingEvent.querySelector('.description p').textContent = descriptionLong;
+                // Actualizar el evento existente en el array
+                const index = events.indexOf(editingEvent);
+                if (index !== -1) {
+                    events[index] = {
+                        date,
+                        title,
+                        descriptionShort,
+                        descriptionLong
+                    };
+                }
             } else {
-                // Crear un nuevo evento
-                const event = createEvent(date, title, descriptionShort, descriptionLong);
-                eventList.appendChild(event);
+                // Agregar el nuevo evento al array
+                events.push({
+                    date,
+                    title,
+                    descriptionShort,
+                    descriptionLong
+                });
             }
+
+            // Guardar el array de eventos en el almacenamiento local
+            localStorage.setItem('events', JSON.stringify(events));
+
+            renderEvents(events);
 
             clearForm();
             eventPopup.style.display = 'none';
-            
         }
     });
 
@@ -65,9 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('delete-event-button').addEventListener('click', function() {
         const selectedEvents = getSelectedEvents();
         if (selectedEvents.length > 0) {
-            selectedEvents.forEach((event) => {
-                eventList.removeChild(event);
-            });
+            for (const selectedEvent of selectedEvents) {
+                const index = events.indexOf(selectedEvent);
+                if (index !== -1) {
+                    events.splice(index, 1);
+                }
+            }
+            // Guardar el array de eventos actualizado en el almacenamiento local
+            localStorage.setItem('events', JSON.stringify(events));
+            renderEvents(events);
         } else {
             alert('Selecciona al menos un evento para eliminar.');
         }
@@ -86,19 +128,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Función para crear un nuevo evento
-    function createEvent(date, title, descriptionShort, descriptionLong) {
-        const event = document.createElement('div');
-        event.classList.add('event');
-        event.innerHTML = `
+    function createEventElement(event) {
+        const eventElement = document.createElement('div');
+        eventElement.classList.add('event');
+        eventElement.innerHTML = `
             <input type="checkbox" class="event-checkbox">
-            <p class="event-date">${date}</p>
-            <h2>${title}</h2>
-            <p class="event-description">${descriptionShort}</p>
+            <p class="event-date">${event.date}</p>
+            <h2>${event.title}</h2>
+            <p class="event-description">${event.descriptionShort}</p>
             <div class="description" style="display: none;">
-                <p>${descriptionLong}</p>
+                <p>${event.descriptionLong}</p>
             </div>
         `;
-        return event;
+        return eventElement;
     }
 
     // Función para limpiar el formulario
@@ -168,5 +210,3 @@ editEventButton.addEventListener('click', showPopup);
 
 // Ocultar el popup al hacer clic en "Cancelar"
 cancelPopupButton.addEventListener('click', hidePopup);
-
-
